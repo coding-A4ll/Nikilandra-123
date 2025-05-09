@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram Styled Page (Auto Theme)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px 5px 20px;
+    }
+
+    .header img.logo {
+      height: 35px;
+      transition: filter 0.3s;
+    }
+
+    .login-link {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .line {
+      width: 100%;
+      border-bottom: 1px solid;
+      transition: border-color 0.3s;
+    }
+
+    .center-image {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .center-image img.white-warning {
+      max-width: 60px;
+      transition: filter 0.3s;
+    }
+
+    .error-heading {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .error-subheading {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .reload-button {
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      padding: 12px 20px;
+      background-color: #0095f6;
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .reload-button:hover {
+      background-color: #007bb5;
+    }
+
+    /* LIGHT THEME (Default) */
+    body {
+      background-color: white;
+      color: black;
+    }
+
+    .login-link {
+      color: #0095f6;
+    }
+
+    .line {
+      border-color: #ccc;
+    }
+
+    .center-image img.white-warning {
+      filter: none;
+    }
+
+    /* DARK THEME */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+        color: white;
+      }
+
+      .login-link {
+        color: #0095f6;
+      }
+
+      .line {
+        border-color: #444;
+      }
+
+      .header img.logo,
+      .center-image img.white-warning {
+        filter: brightness(0) invert(1);
+      }
+
+      .error-subheading {
+        color: #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram Logo">
+    <a href="instagram.html" class="login-link">Log in</a>
+  </div>
+  <div class="line"></div>
+
+  <div class="center-image">
+    <img src="warning.png" alt="Warning Icon" class="white-warning">
+  </div>
+  <div class="error-heading">Something went wrong</div>
+  <div class="error-subheading">There's an issue and the page could not be loaded</div>
+
+  <button class="reload-button" onclick="location.reload()">Reload page</button>
+</body>
+</html>

